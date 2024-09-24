@@ -14,7 +14,7 @@ class MockLogger implements LoggerInterface
     public function log($level, Stringable|string $msg, array $context = []): void
     {
         $msg = '['.strtoupper($level).'] '.$msg;
-        $msg .= (count($context) === 0) ? '' : json_encode($context);
+        $msg .= (count($context) === 0) ? '' : ' '.json_encode($context);
         $this->logs[] = $msg;
     }
 
@@ -22,6 +22,11 @@ class MockLogger implements LoggerInterface
     {
         $this->logs = [];
         return $this;
+    }
+
+    public function last(): string
+    {
+        return end($this->logs);
     }
 
     public function count(): int

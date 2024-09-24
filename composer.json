@@ -19,5 +19,9 @@
             "name": "Mike Thorn",
             "email": "mthorn.work@gmail.com"
         }
-    ]
+    ],
+    "scripts": {
+      "format": "pint --preset psr12",
+      "test": "phpunit --stderr src/Tests/"
+    }
 }
